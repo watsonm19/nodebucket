@@ -1,3 +1,10 @@
+/**
+ * Title:  Nodebucket - Home Page
+ * Author: Mark Watson
+ * Date: 22 August 2021
+ * Description: Home component for Nodebucket.
+**/
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

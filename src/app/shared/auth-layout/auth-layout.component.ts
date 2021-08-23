@@ -1,3 +1,10 @@
+/**
+ * Title:  Nodebucket - Auth Layout
+ * Author: Mark Watson
+ * Date: 22 August 2021
+ * Description: Auth layout component for Nodebucket.
+**/
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

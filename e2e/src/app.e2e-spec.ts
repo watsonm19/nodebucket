@@ -1,3 +1,10 @@
+/**
+ * Title:  Nodebucket
+ * Author: Mark Watson
+ * Date: 22 August 2021
+ * Description: App e2e file.
+**/
+
 import { AppPage } from './app.po';
 import { browser, logging } from 'protractor';
 

@@ -1,3 +1,10 @@
+/**
+ * Title:  Nodebucket - Base Layout
+ * Author: Mark Watson
+ * Date: 22 August 2021
+ * Description: Base layout component for Nodebucket.
+**/
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +15,7 @@ import { Component, OnInit } from '@angular/core';
 export class BaseLayoutComponent implements OnInit {
 
   year: number = Date.now();
-  
+
   constructor() { }
 
   ngOnInit(): void {

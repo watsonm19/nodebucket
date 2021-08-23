@@ -1,3 +1,10 @@
+/**
+ * Title:  Nodebucket - Environment
+ * Author: Mark Watson
+ * Date: 22 August 2021
+ * Description: Environment file for Nodebucket.
+**/
+
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.

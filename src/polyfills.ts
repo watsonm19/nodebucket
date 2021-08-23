@@ -1,4 +1,11 @@
 /**
+ * Title:  Nodebucket
+ * Author: Mark Watson
+ * Date: 22 August 2021
+ * Description: Default polyfills file for Nodebucket.
+**/
+
+/**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.
  *

@@ -1,3 +1,10 @@
+/**
+ * Title:  Nodebucket
+ * Author: Mark Watson
+ * Date: 22 August 2021
+ * Description: Default test file for Nodebucket.
+**/
+
 // This file is required by karma.conf.js and loads recursively all the .spec and framework files
 
 import 'zone.js/dist/zone-testing';

@@ -1,3 +1,10 @@
+/**
+ * Title:  Nodebucket
+ * Author: Mark Watson
+ * Date: 22 August 2021
+ * Description: Protractor config file.
+**/
+
 // @ts-check
 // Protractor configuration file, see link for more information
 // https://github.com/angular/protractor/blob/master/lib/config.ts
