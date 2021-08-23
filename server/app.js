@@ -1,12 +1,20 @@
 /**
+ * Title:  Nodebucket - App
+ * Author: Mark Watson
+ * Date: 20 August 2021
+ * Description: The application server for Nodebucket.
+**/
+
+/**
  * Require statements
  */
 const express = require('express');
 const http = require('http');
 const morgan = require('morgan');
-const bodyParser = require('body-parser');                        
+const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
+const EmployeeAPI = require('./routes/employee-api');
 
 /**
  * App configurations
@@ -21,10 +29,10 @@ app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')));
 /**
  * Variables
  */
-const port = 3000; // server port
+const port = process.env.PORT || 3000; // server port
 
-// TODO: This line will need to be replaced with your actual database connection string
-const conn = 'mongodb+srv://superadmin:s3cret@cluster0-lujih.mongodb.net/nodebucket?retryWrites=true&w=majority';
+// Database connection string
+const conn = 'mongodb+srv://nodebucket_user:admin@cluster0.vy7o8.mongodb.net/nodebucket?retryWrites=true&w=majority';
 
 /**
  * Database connection
@@ -40,8 +48,9 @@ mongoose.connect(conn, {
 }); // end mongoose connection
 
 /**
- * API(s) go here...
+ * APIs
  */
+app.use('/api/employees', EmployeeAPI);
 
 /**
  * Create and start server
