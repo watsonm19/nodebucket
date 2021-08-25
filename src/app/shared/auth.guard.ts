@@ -16,7 +16,7 @@ import { CookieService } from 'ngx-cookie-service';
 
 export class AuthGuard implements CanActivate {
   // use the router to navigate
-  constructor(private router: Router, private cookieService) {}
+  constructor(private router: Router, private cookieService: CookieService) {}
 
   // check if user is authenticated
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
