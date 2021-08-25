@@ -19,7 +19,7 @@ let employeeSchema = new Schema({
   empId:     {type: String, unique: true},
   firstName: {type: String},
   lastName:  {type: String},
-  todo:      [ItemDocument],
+  toDo:      [ItemDocument],
   done:      [ItemDocument]
 }, {collection: 'employees'})
 
