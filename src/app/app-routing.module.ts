@@ -1,7 +1,7 @@
 /**
  * Title:  Nodebucket - Routing
  * Author: Mark Watson
- * Date: 22 August 2021
+ * Date: 29 August 2021
  * Description: App routing for Nodebucket.
 **/
 
@@ -12,6 +12,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SigninComponent } from './pages/signin/signin.component';
 import { AuthGuard } from './shared/auth.guard';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,11 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'contact',
+        component: ContactComponent,
         canActivate: [AuthGuard]
       }
     ]

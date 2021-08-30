@@ -1,8 +1,8 @@
 /**
- * Title:  Nodebucket - App Module
- * Author: Mark Watson
- * Date: 22 August 2021
- * Description: App module file for Nodebucket.
+ * Title:         Nodebucket - App Module
+ * Author:        Mark Watson
+ * Date:          29 August 2021
+ * Description:   App module file for Nodebucket.
 **/
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,7 +25,12 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
 import { CookieService } from 'ngx-cookie-service';
+import { ContactComponent } from './pages/contact/contact.component';
+import { CreateTaskDialogComponent } from './shared/create-task-dialog/create-task-dialog.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,9 @@ import { CookieService } from 'ngx-cookie-service';
     HomeComponent,
     BaseLayoutComponent,
     AuthLayoutComponent,
-    SigninComponent
+    SigninComponent,
+    ContactComponent,
+    CreateTaskDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,10 @@ import { CookieService } from 'ngx-cookie-service';
     ReactiveFormsModule,
     MatCardModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
