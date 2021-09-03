@@ -114,4 +114,11 @@ router.post('/:empId/tasks', async(req, res) => {
   }
 })
 
+/**
+ * Update a task
+ */
+router.put('/:empId/tasks', async (req, res) => {
+
+})
+
 module.exports = router;
