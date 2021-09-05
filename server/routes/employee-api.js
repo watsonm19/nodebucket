@@ -118,7 +118,7 @@ router.post('/:empId/tasks', async(req, res) => {
 /**
  * Update a task
  */
-router.put('/:empId/tasks', async(req, res) => {
+router.put('/:empId/tasks', async (req, res) => {
   try {
     // find the employee record
     Employee.findOne({'empId': req.params.empId}, function(err,employee) {
@@ -132,7 +132,7 @@ router.put('/:empId/tasks', async(req, res) => {
 
         // set the toDo and done tasks
         employee.set({
-          todo: req.body.toDo,
+          toDo: req.body.toDo,
           done: req.body.done
         })
 
@@ -160,7 +160,7 @@ router.put('/:empId/tasks', async(req, res) => {
 /**
  * deleteTask API
  */
-router.delete('/:empId/tasks/:taskId', async(req, res) => {
+router.delete('/:empId/tasks/:taskId', async (req, res) => {
   try {
     // find the employee record
     Employee.findOne({'empId': req.params.empId}, function(err, employee) { //find emp by id
@@ -188,7 +188,7 @@ router.delete('/:empId/tasks/:taskId', async(req, res) => {
               res.status(501).send(deleteToDoItemMongoErrorResponse.toObject());
             } else {
               console.log(updatedToDoItemEmployee);
-              const deleteToDoItemSuccessResponse = new BaseResponse('200', 'Item removed from the todo array', updatedTodoItemEmployee);
+              const deleteToDoItemSuccessResponse = new BaseResponse('200', 'Item removed from the toDo array', updatedToDoItemEmployee);
               res.status(200).send(deleteToDoItemSuccessResponse.toObject());
             }
           });
