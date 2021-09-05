@@ -1,8 +1,8 @@
 /**
  * Title:         Nodebucket - App Module
  * Author:        Mark Watson
- * Date:          29 August 2021
- * Description:   API for retrieving employee data and creating tasks.
+ * Date:          4 September 2021
+ * Description:   API for retrieving employee data and performing CRUD operations on tasks.
 **/
 
 /**
@@ -10,6 +10,7 @@
  */
 const express = require('express');
 const Employee = require('../models/employee');
+const BaseResponse = require('../models/base-response');
 
 const router = express.Router();
 
@@ -117,8 +118,109 @@ router.post('/:empId/tasks', async(req, res) => {
 /**
  * Update a task
  */
-router.put('/:empId/tasks', async (req, res) => {
+router.put('/:empId/tasks', async(req, res) => {
+  try {
+    // find the employee record
+    Employee.findOne({'empId': req.params.empId}, function(err,employee) {
+      // 
+      if (err) {
+        console.log(err);
+        const updateTaskMongoErrorResponse = new BaseResponse('501', 'Mongo server error', err);
+        res.status(501).send(updateTaskServerErrorResponse.toObject());
+      } else {
+        console.log(employee);
 
+        // set the toDo and done tasks
+        employee.set({
+          todo: req.body.toDo,
+          done: req.body.done
+        })
+
+        // save the updated tasks
+        employee.save(function(err, updatedEmployee) {
+          if (err) {
+            console.log(err);  
+            const updateTaskMongoOnSaveErrorResponse = new BaseResponse('501', 'Mongo server error', err);
+            res.status(501).send(updateTaskServerErrorResponse.toObject());
+          } else {
+            console.log(updatedEmployee);
+            const updatedTaskSuccessRate  = new BaseResponse('200', 'Update successful', updatedEmployee);
+            res.status(200).send(updatedTaskSuccessRate.toObject());
+            }
+        })
+      }
+    })
+  } catch(e) {
+    console.log(e);
+    const updateTaskServerErrorResponse = new BaseResponse('500', 'Internal server error', e);
+    res.status(500).send(updateTaskServerErrorResponse.toObject());
+  }
+})
+
+/**
+ * deleteTask API
+ */
+router.delete('/:empId/tasks/:taskId', async(req, res) => {
+  try {
+    // find the employee record
+    Employee.findOne({'empId': req.params.empId}, function(err, employee) { //find emp by id
+      if (err) {
+        console.log(err);
+
+        const deleteTaskMongoErrorResponse = new BaseResponse('501', 'Mongo server error', err);
+
+        res.status(501).send(deleteTaskMongoErrorResponse.toObject());
+      } else {
+        console.log(employee);
+
+        // find the item in the array
+        const toDoItem = employee.toDo.find((item) => item._id.toString() === req.params.taskId);
+        const doneItem = employee.done.find((item) => item._id.toString() === req.params.taskId);
+
+        if (toDoItem) {
+          // remove the record from the array if item is found
+          employee.toDo.id(toDoItem._id).remove();
+          // save the updated employee record
+          employee.save(function (err, updatedToDoItemEmployee) {
+            if (err) {
+              console.log(err);
+              const deleteToDoItemMongoErrorResponse = new BaseResponse('501', 'Mongo server error', err);
+              res.status(501).send(deleteToDoItemMongoErrorResponse.toObject());
+            } else {
+              console.log(updatedToDoItemEmployee);
+              const deleteToDoItemSuccessResponse = new BaseResponse('200', 'Item removed from the todo array', updatedTodoItemEmployee);
+              res.status(200).send(deleteToDoItemSuccessResponse.toObject());
+            }
+          });
+        } else if (doneItem) {
+          // remove the item from the done array
+          employee.done.id(doneItem._id).remove();
+          // save the updated employee record
+          employee.save(function (err, updatedDoneItemEmployee) {
+            if (err) {
+              console.log(err);
+              const deleteDoneItemMongoErrorResponse = new BaseResponse('501', 'Mongo server error', err);
+              res.status (501).send(deleteDoneItemMongoErrorResponse.toObject());
+            } else {
+              console.log(updatedDoneItemEmployee);  //successful call
+              const deleteDoneItemSuccessResponse = new BaseResponse('200', 'Item removed from the done array', updatedDoneItemEmployee);
+              res.status(200).send(deleteDoneItemSuccessResponse.toObject());
+            }
+          });
+        } else {
+          console.log('Invalid taskId' + req.params.taskId);
+          const deleteTasksNotFoundResponse = new BaseResponse('300', 'Unable to locate the requested resources', req.params.taskId);
+          res.status(300).send(deleteTaskNotFoundResponse.toObject());
+        }
+      }
+
+    });
+
+  } catch (e) {
+    console.log(e);
+    const deleteTaskServerError= new BaseResponse('500','Internal server error', e);
+    res.status(500).send(deleteTaskServerError.toObject());
+  }
 })
 
 module.exports = router;
