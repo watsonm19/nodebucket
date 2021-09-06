@@ -1,0 +1,30 @@
+/**
+ * Title:  Nodebucket - Not Found Page Styles
+ * Author: Mark Watson
+ * Date: 4 September 2021
+ * Description: Not found page stylesheet for Nodebucket.
+**/
+
+#error {
+  font-size: 5em;
+}
+
+img {
+  width: 400px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.img-attribution {
+  font-size: 10px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: blue;
+  text-decoration: underline;
+}

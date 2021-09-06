@@ -1,7 +1,7 @@
 /**
  * Title:         Nodebucket - App Module
  * Author:        Mark Watson
- * Date:          29 August 2021
+ * Date:          5 September 2021
  * Description:   App module file for Nodebucket.
 **/
 
@@ -31,6 +31,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { CookieService } from 'ngx-cookie-service';
 import { ContactComponent } from './pages/contact/contact.component';
 import { CreateTaskDialogComponent } from './shared/create-task-dialog/create-task-dialog.component';
+import { DragDropModule} from '@angular/cdk/drag-drop';
+import { AboutComponent } from './pages/about/about.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,9 @@ import { CreateTaskDialogComponent } from './shared/create-task-dialog/create-ta
     AuthLayoutComponent,
     SigninComponent,
     ContactComponent,
-    CreateTaskDialogComponent
+    CreateTaskDialogComponent,
+    AboutComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,8 @@ import { CreateTaskDialogComponent } from './shared/create-task-dialog/create-ta
     MatFormFieldModule,
     MatMenuModule,
     MatDialogModule,
-    MatDividerModule
+    MatDividerModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

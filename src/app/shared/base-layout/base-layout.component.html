@@ -9,10 +9,33 @@
           <button class="logo" routerLink="/" mat-button>nodebucket</button>
 
           <button class="navbar-link" routerLink="/" mat-button>Home</button>
-          <button class="navbar-link" mat-button>About</button>
+          <button class="navbar-link" routerLink="/about" mat-button>About</button>
           <button class="navbar-link" routerLink="/contact" mat-button>Contact</button>
         </div>
 
+        <div fxFlex>
+          <div *ngIf="isLoggedIn">
+
+            <!-- opens menu -->
+            <button id="user-icon" mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="User profile menu">
+              <mat-icon>perm_identity</mat-icon>
+            </button>
+
+            <!-- show menu if profile icon is clicked -->
+            <mat-menu #profileMenu>
+              <p style="padding: 10px;">
+              Signed in as {{ name }}
+            </p>
+
+            <mat-divider></mat-divider>
+
+            <button mat-menu-item (click)="signOut()">
+              <mat-icon>logout</mat-icon>
+              <span>Sign Out</span>
+            </button>
+            </mat-menu>
+          </div>
+        </div>
       </mat-toolbar>
     </nav>
 

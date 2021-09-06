@@ -1,3 +1,10 @@
+/**
+ * Title:         Nodebucket - Base Response
+ * Author:        Mark Watson
+ * Date:          4 September 2021
+ * Description:   Base response code for API reusability.
+**/
+
 class BaseResponse {
   constructor(code, msg, data) {
     this.code = code;

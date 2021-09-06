@@ -1,7 +1,7 @@
 /**
  * Title:  Nodebucket - Base Layout Styles
  * Author: Mark Watson
- * Date: 29 August 2021
+ * Date: 5 September 2021
  * Description: Base layout styles for Nodebucket.
 **/
 
@@ -43,4 +43,8 @@
 
   .bu-link:hover {
     text-decoration: underline;
+  }
+
+  #user-icon {
+    float: right;
   }

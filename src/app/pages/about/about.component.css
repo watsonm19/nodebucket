@@ -1,0 +1,19 @@
+/**
+ * Title:  Nodebucket - About Page Styles
+ * Author: Mark Watson
+ * Date: 4 September 2021
+ * Description: About page stylesheet for Nodebucket.
+**/
+
+.img {
+    max-width: 200px;
+    height:  auto;
+    align-self: center;
+    border-radius: 10px;
+}
+
+#nb-users {
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+}

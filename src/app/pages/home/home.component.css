@@ -9,38 +9,42 @@
     margin-top: 30px;
   }
 
-  .title {
-    text-align: center;
-    font-weight: lighter;
-  }
+.title {
+  text-align: center;
+  font-weight: lighter;
+}
 
-  .subtitle {
-    text-align: center;
-    font-size: 14px;
-  }
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+}
 
-  .task-container{
-    width: 35%;
-    margin: 0 auto;
-  }
+.task-container{
+  width: 35%;
+  margin: 0 auto;
+}
 
-  .task-column{
-    border: 1px solid #ccc;
-    min-height: 68px;
-    background: white;
-    border-radius: 4px;
-    overflow: hidden;
-    display: block;
-   }
+.task-column{
+  border: 1px solid #ccc;
+  min-height: 68px;
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+ }
 
-   .task-card {
-     cursor: grab;
-     padding: 20px 10px;
-     border-bottom: solid 1px#ccc;
-     min-height: 68px;
-     height: 68px;
-     font-size: 14px;
-     box-sizing: border-box;
-     justify-content: space-between;
-     align-items: center;
-   }
+.task-card {
+  cursor: grab;
+  padding: 20px 10px;
+  border-bottom: solid 1px#ccc;
+  min-height: 68px;
+  height: 68px;
+  font-size: 14px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#delete {
+  float: right;
+}
