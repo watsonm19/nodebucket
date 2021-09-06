@@ -163,7 +163,7 @@ router.put('/:empId/tasks', async (req, res) => {
 router.delete('/:empId/tasks/:taskId', async (req, res) => {
   try {
     // find the employee record
-    Employee.findOne({'empId': req.params.empId}, function(err, employee) { //find emp by id
+    Employee.findOne({'empId': req.params.empId}, function(err, employee) {
       if (err) {
         console.log(err);
 
@@ -202,7 +202,7 @@ router.delete('/:empId/tasks/:taskId', async (req, res) => {
               const deleteDoneItemMongoErrorResponse = new BaseResponse('501', 'Mongo server error', err);
               res.status (501).send(deleteDoneItemMongoErrorResponse.toObject());
             } else {
-              console.log(updatedDoneItemEmployee);  //successful call
+              console.log(updatedDoneItemEmployee);
               const deleteDoneItemSuccessResponse = new BaseResponse('200', 'Item removed from the done array', updatedDoneItemEmployee);
               res.status(200).send(deleteDoneItemSuccessResponse.toObject());
             }
@@ -213,9 +213,7 @@ router.delete('/:empId/tasks/:taskId', async (req, res) => {
           res.status(300).send(deleteTaskNotFoundResponse.toObject());
         }
       }
-
     });
-
   } catch (e) {
     console.log(e);
     const deleteTaskServerError= new BaseResponse('500','Internal server error', e);
