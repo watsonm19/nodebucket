@@ -4,6 +4,9 @@
  * Date: 4 September 2021
  * Description: About page stylesheet for Nodebucket.
 **/
+h1 {
+  font-size: 2em;
+}
 
 .img {
     max-width: 200px;

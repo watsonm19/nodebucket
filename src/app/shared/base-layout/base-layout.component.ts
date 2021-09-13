@@ -25,7 +25,7 @@ export class BaseLayoutComponent implements OnInit {
     this.isLoggedIn = this.cookieService.get('session_user') ? true : false;
 
     // get the user's name and store it
-    this.name = sessionStorage.getItem('name');
+    this.name = this.cookieService.get('session_user');
     console.log('Signed in as user ' + this.name);
   }
 
